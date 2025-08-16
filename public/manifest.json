@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+
+  "name": "FJB",
+  "description": "FJB",
+  "version": "0.1",
+
+  "web_accessible_resources": [
+    {
+      "matches": ["<all_urls>"],
+      "resources": ["index.html"]
+    }
+  ],
+
+  "icons": {
+    "16": "logo192.png",
+    "48": "logo512.png"
+  },
+
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "scripting",
+    "storage",
+    "webNavigation"
+  ],
+
+  "host_permissions": [
+    "http://*/",
+    "https://*/"
+  ],
+
+  "content_scripts": [{
+    "matches": [
+      "https://discord.com/channels/*",
+      "https://chat.openai.com/*"
+    ],
+    "js": [
+      "js/jquery-3.3.1.min.js",
+      "js/arrive.min.js",
+      "js/screenfull.js",
+      "scripts/inject-discord.js",
+      "scripts/inject-chatgpt.js"
+    ]
+  }],
+
+  "action": {
+    "default_icon": "logo192.png",
+    "default_title": "FJB",
+    "default_popup": "index.html"
+  }
+}
