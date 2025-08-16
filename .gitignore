@@ -8,8 +8,8 @@
 # testing
 /coverage
 
-# production
-/build
+# we allow the build folder because it contains the extension code 
+# /build
 
 # misc
 .DS_Store
